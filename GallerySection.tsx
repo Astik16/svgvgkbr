@@ -1,21 +1,21 @@
 const galleryItems = [
   {
-    src: '/images/hero-bg.jpg',
+    src: '/hero-bg.jpg',
     title: 'Ветераны в строю',
     desc: 'Парад ветеранов ГСВГ',
   },
   {
-    src: '/images/veterans-photo.jpg',
+    src: '/veterans-photo.jpg',
     title: 'Встреча ветеранов',
     desc: 'Ежегодное собрание организации',
   },
   {
-    src: '/images/germany-map.jpg',
+    src: '/germany-map.jpg',
     title: 'Карта дислокации войск',
     desc: 'Расположение частей ГСОВГ, ГСВГ, ЗГВ',
   },
   {
-    src: '/images/elbrus.jpg',
+    src: '/elbrus.jpg',
     title: 'Эльбрус',
     desc: 'Символ Кабардино-Балкарии',
   },

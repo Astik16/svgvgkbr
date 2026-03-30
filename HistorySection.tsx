@@ -62,7 +62,7 @@ export default function HistorySection() {
 
         {/* Map background image */}
         <div className="relative mb-12 rounded-xl overflow-hidden">
-          <img src="/images/germany-map.jpg" alt="Карта расположения войск" className="w-full h-48 lg:h-64 object-cover opacity-40" />
+          <img src="/germany-map.jpg" alt="Карта расположения войск" className="w-full h-48 lg:h-64 object-cover opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
               <div className="text-[#C9A84C] font-bold text-xl lg:text-3xl tracking-wider" style={{ fontFamily: 'Playfair Display, serif' }}>

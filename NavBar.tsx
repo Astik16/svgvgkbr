@@ -9,8 +9,10 @@ const navLinks = [
   { href: '#history', label: 'История' },
   { href: '#symbols', label: 'Символика' },
   { href: '#activities', label: 'Деятельность' },
+  { href: '#news', label: 'Новости' },
   { href: '#gallery', label: 'Галерея' },
   { href: '#contacts', label: 'Контакты' },
+  { href: '#/blog', label: 'Блог' },
 ];
 
 export default function NavBar({ scrolled }: NavBarProps) {
@@ -26,7 +28,6 @@ export default function NavBar({ scrolled }: NavBarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center">
               <svg viewBox="0 0 60 60" className="w-full h-full">
@@ -40,7 +41,6 @@ export default function NavBar({ scrolled }: NavBarProps) {
             </div>
           </a>
 
-          {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -53,7 +53,6 @@ export default function NavBar({ scrolled }: NavBarProps) {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -64,8 +63,7 @@ export default function NavBar({ scrolled }: NavBarProps) {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-[28rem] pb-4' : 'max-h-0'}`}>
           <div className="flex flex-col gap-2 pt-2 border-t border-[#C9A84C]/20">
             {navLinks.map((link) => (
               <a

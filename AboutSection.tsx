@@ -96,7 +96,7 @@ export default function AboutSection() {
           </div>
           <div className="relative">
             <img
-              src="/images/veterans-photo.jpg"
+              src="/veterans-photo.jpg"
               alt="Ветераны ГСВГ"
               className="rounded-lg shadow-2xl w-full object-cover h-80 lg:h-96"
             />

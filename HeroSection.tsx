@@ -4,7 +4,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}
+        style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
       />
       {/* Dark overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d1a]/80 via-[#0d0d1a]/60 to-[#0d0d1a]" />
@@ -38,17 +38,17 @@ export default function HeroSection() {
         <div className="flex items-center gap-6 lg:gap-12 mb-8 animate-fadeInUp">
           {/* Russian Federation emblem (decorative SVG) */}
           <div className="w-20 h-20 lg:w-28 lg:h-28 animate-float" style={{ animationDelay: '0s' }}>
-            <img src="/images/kbr-coat.png" alt="Герб КБР" className="w-full h-full object-contain drop-shadow-2xl" />
+            <img src="/kbr-coat.png" alt="Герб КБР" className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
 
           {/* Main Organization Emblem */}
           <div className="w-28 h-28 lg:w-40 lg:h-40 animate-pulse-gold rounded-full">
-            <img src="/images/emblem.png" alt="Эмблема организации" className="w-full h-full object-contain drop-shadow-2xl" />
+            <img src="/emblem.png" alt="Эмблема организации" className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
 
           {/* Badge */}
           <div className="w-20 h-20 lg:w-28 lg:h-28 animate-float" style={{ animationDelay: '2s' }}>
-            <img src="/images/gsovg-badge.png" alt="Значок ГСВГ" className="w-full h-full object-contain drop-shadow-2xl" />
+            <img src="/gsovg-badge.png" alt="Значок ГСВГ" className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
         </div>
 
