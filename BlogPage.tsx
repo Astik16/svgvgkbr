@@ -5,6 +5,28 @@ const BLOG_LOGIN = 'svgvgkbrartur';
 const BLOG_PASSWORD = '5.Atmrsri';
 const AUTH_KEY = 'svgvgkbr_blog_auth';
 
+const getStoredAuth = () => {
+  try {
+    return localStorage.getItem(AUTH_KEY) === 'true';
+  } catch (error) {
+    console.warn('Could not read auth state from localStorage:', error);
+    return false;
+  }
+};
+
+const saveStoredAuth = (value: boolean) => {
+  try {
+    if (value) {
+      localStorage.setItem(AUTH_KEY, 'true');
+      return;
+    }
+
+    localStorage.removeItem(AUTH_KEY);
+  } catch (error) {
+    console.warn('Could not persist auth state to localStorage:', error);
+  }
+};
+
 export default function BlogPage() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -12,14 +34,14 @@ export default function BlogPage() {
   const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
-    setAuthorized(localStorage.getItem(AUTH_KEY) === 'true');
+    setAuthorized(getStoredAuth());
   }, []);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (login === BLOG_LOGIN && password === BLOG_PASSWORD) {
-      localStorage.setItem(AUTH_KEY, 'true');
+      saveStoredAuth(true);
       setAuthorized(true);
       setError('');
       return;
@@ -29,7 +51,7 @@ export default function BlogPage() {
   };
 
   const logout = () => {
-    localStorage.removeItem(AUTH_KEY);
+    saveStoredAuth(false);
     setAuthorized(false);
   };
 
@@ -56,6 +78,7 @@ export default function BlogPage() {
                   onChange={(event) => setLogin(event.target.value)}
                   className="w-full mt-2 rounded border border-[#C9A84C]/40 bg-[#12162b] px-3 py-2 text-white focus:outline-none focus:border-[#C9A84C]"
                   type="text"
+                  autoComplete="username"
                   required
                 />
               </label>
@@ -66,6 +89,7 @@ export default function BlogPage() {
                   onChange={(event) => setPassword(event.target.value)}
                   className="w-full mt-2 rounded border border-[#C9A84C]/40 bg-[#12162b] px-3 py-2 text-white focus:outline-none focus:border-[#C9A84C]"
                   type="password"
+                  autoComplete="current-password"
                   required
                 />
               </label>
