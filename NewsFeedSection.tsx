@@ -1,6 +1,22 @@
-import { blogPosts } from './blogData';
+import { useEffect, useState } from 'react';
+import { BlogPost, loadBlogPosts } from './blogData';
 
 export default function NewsFeedSection() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const updatePosts = () => setPosts(loadBlogPosts());
+
+    updatePosts();
+    window.addEventListener('blog-posts-updated', updatePosts);
+    window.addEventListener('storage', updatePosts);
+
+    return () => {
+      window.removeEventListener('blog-posts-updated', updatePosts);
+      window.removeEventListener('storage', updatePosts);
+    };
+  }, []);
+
   return (
     <section id="news" className="py-20 lg:py-28 bg-gradient-to-b from-[#0d0d1a] via-[#111326] to-[#0d0d1a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,7 +30,7 @@ export default function NewsFeedSection() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <article key={post.id} className="glass-card rounded-xl p-6 border border-[#C9A84C]/25 hover-lift">
               <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">{post.date}</p>
               <h3 className="text-white text-xl font-bold mb-3">{post.title}</h3>
