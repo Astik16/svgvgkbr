@@ -92,12 +92,22 @@ export default function ContactSection() {
             <h3 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Заявка на вступление в организацию
             </h3>
-            <form className="glass-card rounded-xl p-6 border border-[#C9A84C]/20 space-y-4">
+            <form
+              action="https://formsubmit.co/atelematik@gmail.com"
+              method="POST"
+              className="glass-card rounded-xl p-6 border border-[#C9A84C]/20 space-y-4"
+            >
+              <input type="hidden" name="_subject" value="Новая заявка на вступление в РОО «СВГВГ» по КБР" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://astik16.github.io/svgvgkbr/#contacts" />
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Фамилия *</label>
                   <input
+                    name="Фамилия"
                     type="text"
+                    required
                     className="w-full bg-white/5 border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors placeholder-[#f0ead6]/30"
                     placeholder="Иванов"
                   />
@@ -105,7 +115,9 @@ export default function ContactSection() {
                 <div>
                   <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Имя *</label>
                   <input
+                    name="Имя"
                     type="text"
+                    required
                     className="w-full bg-white/5 border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors placeholder-[#f0ead6]/30"
                     placeholder="Иван"
                   />
@@ -114,6 +126,7 @@ export default function ContactSection() {
               <div>
                 <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Отчество</label>
                 <input
+                  name="Отчество"
                   type="text"
                   className="w-full bg-white/5 border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors placeholder-[#f0ead6]/30"
                   placeholder="Иванович"
@@ -121,7 +134,11 @@ export default function ContactSection() {
               </div>
               <div>
                 <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Группа войск *</label>
-                <select className="w-full bg-[#0d0d1a] border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors">
+                <select
+                  name="Группа войск"
+                  required
+                  className="w-full bg-[#0d0d1a] border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors"
+                >
                   <option value="">Выберите группу войск</option>
                   <option value="gsovg">ГСОВГ (1945–1954)</option>
                   <option value="gsvg">ГСВГ (1954–1991)</option>
@@ -133,6 +150,7 @@ export default function ContactSection() {
                 <div>
                   <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Годы службы</label>
                   <input
+                    name="Годы службы"
                     type="text"
                     className="w-full bg-white/5 border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors placeholder-[#f0ead6]/30"
                     placeholder="например: 1978–1980"
@@ -141,6 +159,7 @@ export default function ContactSection() {
                 <div>
                   <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Телефон</label>
                   <input
+                    name="Телефон"
                     type="tel"
                     className="w-full bg-white/5 border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors placeholder-[#f0ead6]/30"
                     placeholder="+7 (___) ___-__-__"
@@ -150,6 +169,7 @@ export default function ContactSection() {
               <div>
                 <label className="block text-[#C9A84C] text-xs font-semibold mb-2 tracking-wider uppercase">Сообщение</label>
                 <textarea
+                  name="Сообщение"
                   rows={3}
                   className="w-full bg-white/5 border border-[#C9A84C]/30 rounded px-4 py-2.5 text-[#f0ead6] text-sm focus:outline-none focus:border-[#C9A84C] transition-colors placeholder-[#f0ead6]/30 resize-none"
                   placeholder="Расскажите о себе, вашем воинском звании и части..."
