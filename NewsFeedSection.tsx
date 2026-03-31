@@ -60,58 +60,59 @@ export default function NewsFeedSection() {
         <div className="grid lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <article key={post.id} className="glass-card rounded-xl p-6 border border-[#C9A84C]/25 hover-lift">
-              <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">{post.date}</p>
-              <h3 className="text-white text-xl font-bold mb-3">{post.title}</h3>
-              <p className="text-[#f0ead6]/70 text-sm leading-relaxed mb-6">{post.excerpt}</p>
+              {(() => {
+                const imageAttachment = post.attachments?.find((attachment) => attachment.type.startsWith('image/'));
+                const nonImageAttachment = post.attachments?.find((attachment) => !attachment.type.startsWith('image/'));
 
-              {!!post.attachments?.length && (
-                <div className="mb-6 rounded-lg border border-[#C9A84C]/20 bg-[#0f1324] p-3 space-y-3">
-                  {post.attachments.slice(0, 2).map((attachment) => {
-                    const isImage = attachment.type.startsWith('image/');
-                    const isVideo = attachment.type.startsWith('video/');
-
-                    return (
-                      <div key={attachment.id} className="rounded border border-[#C9A84C]/15 bg-[#11162a] p-2">
-                        {isImage && (
-                          <img
-                            src={attachment.dataUrl}
-                            alt={attachment.name}
-                            className="w-full h-40 object-cover rounded"
-                          />
-                        )}
-                        {isVideo && (
-                          <video src={attachment.dataUrl} controls className="w-full h-40 rounded object-cover">
-                            Ваш браузер не поддерживает видео.
-                          </video>
-                        )}
-                        {!isImage && !isVideo && (
-                          <a
-                            href={attachment.dataUrl}
-                            download={attachment.name}
-                            className="inline-block text-sm text-[#C9A84C] underline underline-offset-4 break-all"
-                          >
-                            📎 {attachment.name}
-                          </a>
-                        )}
+                return (
+                  <div className={`grid gap-4 ${imageAttachment ? 'grid-cols-[42%_58%] items-stretch' : 'grid-cols-1'}`}>
+                    {imageAttachment && (
+                      <div className="rounded-lg border border-[#C9A84C]/25 bg-[#0f1324] overflow-hidden flex items-center justify-center">
+                        <img
+                          src={imageAttachment.dataUrl}
+                          alt={imageAttachment.name}
+                          className="w-full h-full min-h-44 object-contain bg-[#0b1020]"
+                        />
                       </div>
-                    );
-                  })}
-                  {post.attachments.length > 2 && (
-                    <p className="text-xs text-[#f0ead6]/60">Ещё вложений: {post.attachments.length - 2}</p>
-                  )}
-                </div>
-              )}
+                    )}
 
-              <a
-                href="#news"
-                onClick={(event) => {
-                  event.preventDefault();
-                  openPost(post);
-                }}
-                className="inline-block px-4 py-2 border border-[#C9A84C] text-[#C9A84C] rounded text-xs uppercase tracking-wider hover:bg-[#C9A84C]/10 transition-colors"
-              >
-                Читать
-              </a>
+                    <div className="flex flex-col">
+                      <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">{post.date}</p>
+                      <h3 className="text-white text-xl font-bold mb-3">{post.title}</h3>
+                      <p className="text-[#f0ead6]/70 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+
+                      {!!nonImageAttachment && (
+                        <div className="mb-4 rounded border border-[#C9A84C]/20 bg-[#11162a] p-2">
+                          {nonImageAttachment.type.startsWith('video/') ? (
+                            <video src={nonImageAttachment.dataUrl} controls className="w-full h-32 rounded object-cover">
+                              Ваш браузер не поддерживает видео.
+                            </video>
+                          ) : (
+                            <a
+                              href={nonImageAttachment.dataUrl}
+                              download={nonImageAttachment.name}
+                              className="inline-block text-sm text-[#C9A84C] underline underline-offset-4 break-all"
+                            >
+                              📎 {nonImageAttachment.name}
+                            </a>
+                          )}
+                        </div>
+                      )}
+
+                      <a
+                        href="#news"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          openPost(post);
+                        }}
+                        className="inline-block mt-auto w-fit px-4 py-2 border border-[#C9A84C] text-[#C9A84C] rounded text-xs uppercase tracking-wider hover:bg-[#C9A84C]/10 transition-colors"
+                      >
+                        Читать
+                      </a>
+                    </div>
+                  </div>
+                );
+              })()}
             </article>
           ))}
         </div>
