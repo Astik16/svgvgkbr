@@ -10,12 +10,14 @@ import ContactSection from './ContactSection';
 import Footer from './Footer';
 import BlogPage from './BlogPage';
 import NewsFeedSection from './NewsFeedSection';
+import CommunityPage from './CommunityPage';
 
 const BLOG_HASH_ROUTE = '#/blog';
+const COMMUNITY_HASH_ROUTE = '#/community';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
-  const [isBlogPage, setIsBlogPage] = useState(window.location.hash === BLOG_HASH_ROUTE);
+  const [hashRoute, setHashRoute] = useState(window.location.hash);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +25,7 @@ function App() {
     };
 
     const handleHashChange = () => {
-      setIsBlogPage(window.location.hash === BLOG_HASH_ROUTE);
+      setHashRoute(window.location.hash);
       window.scrollTo({ top: 0, behavior: 'auto' });
     };
 
@@ -37,8 +39,11 @@ function App() {
     };
   }, []);
 
-  if (isBlogPage) {
+  if (hashRoute === BLOG_HASH_ROUTE) {
     return <BlogPage />;
+  }
+  if (hashRoute === COMMUNITY_HASH_ROUTE) {
+    return <CommunityPage />;
   }
 
   return (

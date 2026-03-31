@@ -13,6 +13,7 @@ const navLinks = [
   { href: '#gallery', label: 'Галерея' },
   { href: '#contacts', label: 'Контакты' },
   { href: '#/blog', label: 'Блог' },
+  { href: '#/community', label: 'Сообщество' },
 ];
 
 export default function NavBar({ scrolled }: NavBarProps) {
