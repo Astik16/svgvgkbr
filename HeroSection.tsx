@@ -1,10 +1,15 @@
+import heroBg from './hero-bg.jpg';
+import kbrCoat from './kbr-coat.png';
+import emblem from './emblem.png';
+import gsovgBadge from './gsovg-badge.png';
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
+        style={{ backgroundImage: `url(${heroBg})` }}
       />
       {/* Dark overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d1a]/80 via-[#0d0d1a]/60 to-[#0d0d1a]" />
@@ -38,17 +43,17 @@ export default function HeroSection() {
         <div className="flex items-center gap-6 lg:gap-12 mb-8 animate-fadeInUp">
           {/* Russian Federation emblem (decorative SVG) */}
           <div className="w-20 h-20 lg:w-28 lg:h-28 animate-float" style={{ animationDelay: '0s' }}>
-            <img src="/kbr-coat.png" alt="Герб КБР" className="w-full h-full object-contain drop-shadow-2xl" />
+            <img src={kbrCoat} alt="Герб КБР" className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
 
           {/* Main Organization Emblem */}
           <div className="w-28 h-28 lg:w-40 lg:h-40 animate-pulse-gold rounded-full">
-            <img src="/emblem.png" alt="Эмблема организации" className="w-full h-full object-contain drop-shadow-2xl" />
+            <img src={emblem} alt="Эмблема организации" className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
 
           {/* Badge */}
           <div className="w-20 h-20 lg:w-28 lg:h-28 animate-float" style={{ animationDelay: '2s' }}>
-            <img src="/gsovg-badge.png" alt="Значок ГСВГ" className="w-full h-full object-contain drop-shadow-2xl" />
+            <img src={gsovgBadge} alt="Значок ГСВГ" className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
         </div>
 

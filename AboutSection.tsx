@@ -1,3 +1,5 @@
+import veteransPhoto from './veterans-photo.jpg';
+
 const stats = [
   { number: '12 000+', label: 'Членов организации' },
   { number: '36', label: 'Региональных организаций' },
@@ -96,7 +98,7 @@ export default function AboutSection() {
           </div>
           <div className="relative">
             <img
-              src="/veterans-photo.jpg"
+              src={veteransPhoto}
               alt="Ветераны ГСВГ"
               className="rounded-lg shadow-2xl w-full object-cover h-80 lg:h-96"
             />

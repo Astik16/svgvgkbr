@@ -1,3 +1,7 @@
+import emblem from './emblem.png';
+import gsovgBadge from './gsovg-badge.png';
+import kbrCoat from './kbr-coat.png';
+
 const groupings = [
   {
     abbr: 'ГСОВГ',
@@ -96,7 +100,7 @@ export default function SymbolsSection() {
           {/* Organization Emblem */}
           <div className="glass-card rounded-xl p-8 flex flex-col items-center text-center hover-lift border border-[#C9A84C]/20">
             <div className="mb-4 animate-float">
-              <img src="/emblem.png" alt="Эмблема МОО" className="w-28 h-28 object-contain" />
+              <img src={emblem} alt="Эмблема МОО" className="w-28 h-28 object-contain" />
             </div>
             <h3 className="text-[#C9A84C] font-bold mb-2">Эмблема организации</h3>
             <p className="text-[#f0ead6]/60 text-xs">МОО «Союз ветеранов Группы войск в Германии (ГСОВГ, ГСВГ, ЗГВ)»</p>
@@ -105,7 +109,7 @@ export default function SymbolsSection() {
           {/* Badge ГСВГ */}
           <div className="glass-card rounded-xl p-8 flex flex-col items-center text-center hover-lift border border-[#C9A84C]/20">
             <div className="mb-4 animate-float" style={{ animationDelay: '1s' }}>
-              <img src="/gsovg-badge.png" alt="Значок ГСВГ" className="w-28 h-28 object-contain" />
+              <img src={gsovgBadge} alt="Значок ГСВГ" className="w-28 h-28 object-contain" />
             </div>
             <h3 className="text-[#C9A84C] font-bold mb-2">Знак «Ветеран ГСВГ»</h3>
             <p className="text-[#f0ead6]/60 text-xs">Нагрудный памятный знак участника Группы советских войск в Германии</p>
@@ -114,7 +118,7 @@ export default function SymbolsSection() {
           {/* KBR Coat of Arms */}
           <div className="glass-card rounded-xl p-8 flex flex-col items-center text-center hover-lift border border-[#C9A84C]/20 sm:col-span-2 lg:col-span-1">
             <div className="mb-4 animate-float" style={{ animationDelay: '2s' }}>
-              <img src="/kbr-coat.png" alt="Герб КБР" className="w-28 h-28 object-contain" />
+              <img src={kbrCoat} alt="Герб КБР" className="w-28 h-28 object-contain" />
             </div>
             <h3 className="text-[#C9A84C] font-bold mb-2">Герб КБР</h3>
             <p className="text-[#f0ead6]/60 text-xs">Государственный герб Кабардино-Балкарской Республики — золотой орёл с Эльбрусом</p>

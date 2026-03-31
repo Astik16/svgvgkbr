@@ -1,3 +1,5 @@
+import elbrus from './elbrus.jpg';
+
 const events = [
   {
     date: '9 мая',
@@ -78,7 +80,7 @@ export default function ActivitiesSection() {
 
         {/* Elbrus image with overlay */}
         <div className="relative rounded-xl overflow-hidden mb-14">
-          <img src="/elbrus.jpg" alt="Эльбрус — символ КБР" className="w-full h-48 lg:h-64 object-cover" />
+          <img src={elbrus} alt="Эльбрус — символ КБР" className="w-full h-48 lg:h-64 object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d1a]/90 via-[#0d0d1a]/50 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8 lg:px-16">
             <div className="max-w-lg">

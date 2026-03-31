@@ -1,21 +1,26 @@
+import heroBg from './hero-bg.jpg';
+import veteransPhoto from './veterans-photo.jpg';
+import germanyMap from './germany-map.jpg';
+import elbrus from './elbrus.jpg';
+
 const galleryItems = [
   {
-    src: '/hero-bg.jpg',
+    src: heroBg,
     title: 'Ветераны в строю',
     desc: 'Парад ветеранов ГСВГ',
   },
   {
-    src: '/veterans-photo.jpg',
+    src: veteransPhoto,
     title: 'Встреча ветеранов',
     desc: 'Ежегодное собрание организации',
   },
   {
-    src: '/germany-map.jpg',
+    src: germanyMap,
     title: 'Карта дислокации войск',
     desc: 'Расположение частей ГСОВГ, ГСВГ, ЗГВ',
   },
   {
-    src: '/elbrus.jpg',
+    src: elbrus,
     title: 'Эльбрус',
     desc: 'Символ Кабардино-Балкарии',
   },
