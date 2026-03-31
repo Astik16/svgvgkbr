@@ -65,13 +65,13 @@ export default function NewsFeedSection() {
                 const nonImageAttachment = post.attachments?.find((attachment) => !attachment.type.startsWith('image/'));
 
                 return (
-                  <div className={`grid gap-4 ${imageAttachment ? 'grid-cols-[42%_58%] items-stretch' : 'grid-cols-1'}`}>
+                  <div className={`grid gap-4 ${imageAttachment ? 'grid-cols-[34%_66%] items-stretch' : 'grid-cols-1'}`}>
                     {imageAttachment && (
                       <div className="rounded-lg border border-[#C9A84C]/25 bg-[#0f1324] overflow-hidden flex items-center justify-center">
                         <img
                           src={imageAttachment.dataUrl}
                           alt={imageAttachment.name}
-                          className="w-full h-full min-h-44 object-contain bg-[#0b1020]"
+                          className="w-full h-full min-h-32 max-h-40 object-contain bg-[#0b1020]"
                         />
                       </div>
                     )}
