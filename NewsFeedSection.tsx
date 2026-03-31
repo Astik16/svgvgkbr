@@ -35,6 +35,45 @@ export default function NewsFeedSection() {
               <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">{post.date}</p>
               <h3 className="text-white text-xl font-bold mb-3">{post.title}</h3>
               <p className="text-[#f0ead6]/70 text-sm leading-relaxed mb-6">{post.excerpt}</p>
+
+              {!!post.attachments?.length && (
+                <div className="mb-6 rounded-lg border border-[#C9A84C]/20 bg-[#0f1324] p-3 space-y-3">
+                  {post.attachments.slice(0, 2).map((attachment) => {
+                    const isImage = attachment.type.startsWith('image/');
+                    const isVideo = attachment.type.startsWith('video/');
+
+                    return (
+                      <div key={attachment.id} className="rounded border border-[#C9A84C]/15 bg-[#11162a] p-2">
+                        {isImage && (
+                          <img
+                            src={attachment.dataUrl}
+                            alt={attachment.name}
+                            className="w-full h-40 object-cover rounded"
+                          />
+                        )}
+                        {isVideo && (
+                          <video src={attachment.dataUrl} controls className="w-full h-40 rounded object-cover">
+                            Ваш браузер не поддерживает видео.
+                          </video>
+                        )}
+                        {!isImage && !isVideo && (
+                          <a
+                            href={attachment.dataUrl}
+                            download={attachment.name}
+                            className="inline-block text-sm text-[#C9A84C] underline underline-offset-4 break-all"
+                          >
+                            📎 {attachment.name}
+                          </a>
+                        )}
+                      </div>
+                    );
+                  })}
+                  {post.attachments.length > 2 && (
+                    <p className="text-xs text-[#f0ead6]/60">Ещё вложений: {post.attachments.length - 2}</p>
+                  )}
+                </div>
+              )}
+
               <a
                 href="#/blog"
                 className="inline-block px-4 py-2 border border-[#C9A84C] text-[#C9A84C] rounded text-xs uppercase tracking-wider hover:bg-[#C9A84C]/10 transition-colors"
